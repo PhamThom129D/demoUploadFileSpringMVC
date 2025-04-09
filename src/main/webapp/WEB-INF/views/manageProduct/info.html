@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Cập nhật thông tin sản phẩm</title>
+</head>
+<body>
+<header th:insert="manageProduct/list :: header"></header>
+
+<section>
+    <h1>Cập nhật thông tin sản phẩm</h1>
+    <form th:action="@{/manageProduct}" th:object="${product}" method="get">
+        <input type="hidden" name="productID" th:field="*{productID}">
+        <p>Tên sản phẩm : </p>
+        <input type="text" placeholder="Nhập tên sản phẩm" th:field="*{productName}" readonly>
+        <p>Giá sản phẩm</p>
+        <input type="number" placeholder="Nhập giá sản phẩm" th:field="*{productPrice}" readonly>
+        <p>Số lượng sản phẩm</p>
+        <input type="number" placeholder="Nhập số lượng sản phẩm" th:field="*{productQuantity}" readonly>
+        <input type="submit" value="Quay lại">
+    </form>
+</section>
+
+<header th:insert="manageProduct/list :: footer"></header>
+</body>
+</html>

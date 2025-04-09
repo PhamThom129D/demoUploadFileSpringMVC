@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+</head>
+<body>
+<div th:fragment="header" >
+    <header>
+        <p>Đây là header</p>
+    </header>
+</div>
+
+<section>
+    <h1>Danh sách nhân viên</h1>
+    <table border="1">
+        <tr>
+            <td>STT</td>
+            <td>Tên nhân viên</td>
+            <td>Email</td>
+            <td>Địa chỉ</td>
+            <td>
+                <a href="manageUser/showAddForm">Thêm mới</a>
+            </td>
+        </tr>
+        <tr th:each="user,stat : ${userList}">
+            <td th:text="${stat.count}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.address}"></td>
+            <td>
+                <a th:href="@{/manageUser/{id}/showUpdateForm(id=${user.id})}"><button>Cập nhật</button></a>
+                <form th:action="@{/manageUser/{id}/delete(id=${user.id})}" method="post">
+                    <button type="submit">Xoá</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<div th:fragment="footer">
+    <footer>
+        <p>Đây là footer</p>
+    </footer>
+</div>
+</body>
+</html>

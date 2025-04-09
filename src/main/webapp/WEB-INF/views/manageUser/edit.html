@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm nhân viên</title>
+</head>
+<body>
+<div th:insert="manageUser/list :: header"></div>
+<h1>Cập nhật thông tin nhân viên</h1>
+<form th:action="@{/manageUser/save}" method="post" th:object="${user}">
+    <input type="hidden" name="id" th:field="*{id}">
+    <p>Tên nhân viên : </p>
+    <input type="text" name="name" placeholder="Nhập tên nhân viên" th:field="*{name}">
+    <p>Email nhân viên : </p>
+    <input type="email" name="email" placeholder="Nhập email nhân viên" th:field="*{email}">
+    <p>Địa chỉ nhân viên : </p>
+    <input type="text" name="address" placeholder="Nhập địa chỉ nhân viên" th:field="*{address}">
+    <br>
+    <input type="submit" value="Lưu">
+</form>
+<div th:insert="manageUser/list :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm </title>
+</head>
+<body>
+<div th:fragment="header">
+    <header>
+        <p>Đây là header</p>
+    </header>
+</div>
+
+<section>
+    <h1>Danh sách sản phẩm</h1>
+    <form th:action="@{manageProduct/searchProduct}" method="post">
+        <input type="text" placeholder="Nhập từ khoá tìm kiếm" name="keyword" >
+        <input type="submit" value="Tìm kiếm">
+    </form>
+    <table border="1">
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>Giá sản phẩm</td>
+            <td>Số lượng sản phẩm</td>
+            <td>
+                <a th:href="@{manageProduct/showAddForm}">Thêm mới</a>
+            </td>
+        </tr>
+        <tr th:each="p,stat:${products}">
+            <td th:text="${p.productName}"></td>
+            <td th:text="${p.productPrice}"></td>
+            <td th:text="${p.productQuantity}"></td>
+            <td>
+                <a th:href="@{manageProduct/{productID}/showUpdateForm(productID=${p.productID})}">Cập nhật</a>
+                <a th:href="@{manageProduct/{productID}/showProductDetail(productID=${p.productID})}">Chi tiết</a>
+                <form th:action="@{manageProduct/{productID}/deleteProduct(productID=${p.productID})}" method="POST">
+                    <input type="submit" value="Xoá">
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>
+<div th:if="${error}">
+    <p th:text="${error}" style="color: #ff0000;"></p>
+</div>
+<div th:fragment="footer">
+    <footer>
+        <p>Đây là footer</p>
+    </footer>
+</div>
+</body>
+</html>
