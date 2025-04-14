@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm món </title>
+</head>
+<body>
+<h1>Thêm món ăn</h1>
+<form th:action="@{/manageFood/create}" method="post" enctype="multipart/form-data" th:object="${food}">
+    <input type="hidden" th:field="*{id}">
+    <p>Tên món : </p>
+    <input type="text" th:field="*{name}">
+    <p> Ảnh món : </p>
+    <input type="file" th:field="*{path_image}" multiple>
+    <input type="submit" value="Thêm">
+</form>
+</body>
+</html>

@@ -2,14 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Cập nhật thông tin sản phẩm</title>
+    <title>Upload file</title>
 </head>
 <body>
-<header th:insert="manageProduct/list :: header"></header>
-
 <section>
-    <h1>Cập nhật thông tin sản phẩm</h1>
-    <form th:action="@{/manageProduct/update}" th:object="${productForm}" method="post">
+    <h1>Thêm sản phẩm</h1>
+    <form th:action="@{/upload/create}" th:object="${productForm}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="productID" th:field="*{productID}">
         <p>Tên sản phẩm : </p>
         <input type="text" placeholder="Nhập tên sản phẩm" th:field="*{productName}">
@@ -17,10 +15,10 @@
         <input type="number" placeholder="Nhập giá sản phẩm" th:field="*{productPrice}">
         <p>Số lượng sản phẩm</p>
         <input type="number" placeholder="Nhập số lượng sản phẩm" th:field="*{productQuantity}">
+        <p>Ảnh sản phẩm :</p>
+        <input type="file" th:field="*{productImage}" multiple>
         <input type="submit" value="Lưu">
     </form>
 </section>
-
-<header th:insert="manageProduct/list :: footer"></header>
 </body>
 </html>

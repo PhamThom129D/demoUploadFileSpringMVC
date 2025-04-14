@@ -9,7 +9,7 @@
 
 <section>
     <h1>Cập nhật thông tin sản phẩm</h1>
-    <form th:action="@{/manageProduct}" th:object="${product}" method="get">
+    <form th:action="@{/manageProduct}" th:object="${productForm}" method="get">
         <input type="hidden" name="productID" th:field="*{productID}">
         <p>Tên sản phẩm : </p>
         <input type="text" placeholder="Nhập tên sản phẩm" th:field="*{productName}" readonly>

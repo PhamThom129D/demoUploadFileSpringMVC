@@ -1,0 +1,8 @@
+	Adobe XD 55.0.12.9 x64 Multilingual
+Bật kết nối mạng khi cài đặt
+Nhấn autoplay.exe để cài như bình thường
+Hiện Cracking complete. Enjoy! là thành công!
+P/s: Cài xong mà không hiện thông báo trên thì mở Task Manager tìm Adobe IPC Broker để End task nó.
+Tốt nhất nên dùng Firewall App Blocker để chặn kết nối mạng của Adobe khi cài thành công nha .
+
+	

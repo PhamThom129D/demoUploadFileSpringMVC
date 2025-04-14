@@ -1,19 +1,23 @@
 package com.codegym.demo.model;
 
-import java.util.Arrays;
+import org.springframework.web.multipart.MultipartFile;
 
-public class Product {
+public class ProductForm {
     private int productID;
     private String productName;
     private int productPrice;
     private int productQuantity;
-    private String[] productImage;
+    private MultipartFile[] productImage;
+    public ProductForm() {}
 
-    public Product() {
+    public ProductForm(int productID, String productName, int productPrice, int productQuantity) {
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productQuantity = productQuantity;
     }
 
-    // ✅ Constructor đúng: truyền vào mảng String[]
-    public Product(int productID, String productName, int productPrice, int productQuantity, String[] productImage) {
+    public ProductForm(int productID, String productName, int productPrice, int productQuantity, MultipartFile[] productImage) {
         this.productID = productID;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -21,16 +25,14 @@ public class Product {
         this.productImage = productImage;
     }
 
-    // ✅ Có thể thêm constructor nhận List<String> nếu cần tiện hơn:
-    public Product(int productID, String productName, int productPrice, int productQuantity, java.util.List<String> uploadedFileNames) {
-        this.productID = productID;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productQuantity = productQuantity;
-        this.productImage = uploadedFileNames.toArray(new String[0]);
+    public MultipartFile[] getProductImage() {
+        return productImage;
     }
 
-    // Getter / Setter
+    public void setProductImage(MultipartFile[] productImage) {
+        this.productImage = productImage;
+    }
+
     public int getProductID() {
         return productID;
     }
@@ -63,22 +65,14 @@ public class Product {
         this.productQuantity = productQuantity;
     }
 
-    public String[] getProductImage() {
-        return productImage;
-    }
-
-    public void setProductImage(String[] productImage) {
-        this.productImage = productImage;
-    }
-
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductForm{" +
                 "productID=" + productID +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
                 ", productQuantity=" + productQuantity +
-                ", productImage=" + Arrays.toString(productImage) +
+                ", productImage=" + productImage +
                 '}';
     }
 }

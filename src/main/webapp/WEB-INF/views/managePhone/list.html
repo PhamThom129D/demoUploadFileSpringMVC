@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách điện thoại</title>
+</head>
+<body>
+<h1>Danh sách điện thoại</h1>
+<table border="1">
+    <tr>
+        <td>STT</td>
+        <td>Tên điện thoại</td>
+        <td>Giá</td>
+        <td>Số lượng</td>
+        <td>
+            <a href="managePhone/add">Thêm mới</a>
+        </td>
+    </tr>
+    <tr th:each="phone,rowStat : ${phones}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${phone.phoneName}"></td>
+        <td th:text="${phone.phonePrice}"></td>
+        <td th:text="${phone.phoneQuantity}"></td>
+        <td>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

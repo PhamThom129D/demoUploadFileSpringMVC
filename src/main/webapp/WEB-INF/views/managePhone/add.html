@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới</title>
+</head>
+<body>
+<form th:action="@{/managePhone/create}" method="post" enctype="multipart/form-data" th:object="${phone}">
+    <input type="hidden" th:field="*{phoneID}">
+    <p>Tên điện thoại : </p>
+    <input type="text" th:field="*{phoneName}">
+    <p>Giá điện thoại : </p>
+    <input type="text" th:field="*{phonePrice}">
+    <p>Số lượng điện thoại : </p>
+    <input type="text" th:field="*{phoneQuantity}">
+    <p>Ảnh điện thoại : </p>
+    <input type="file" th:field="*{phoneImage}" multiple>
+    <input type="submit" value="Thêm">
+</form>
+</body>
+</html>

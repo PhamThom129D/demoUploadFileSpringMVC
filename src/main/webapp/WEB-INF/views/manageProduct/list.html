@@ -26,7 +26,7 @@
                 <a th:href="@{manageProduct/showAddForm}">Thêm mới</a>
             </td>
         </tr>
-        <tr th:each="p,stat:${products}">
+        <tr th:each="p,stat:${productForms}">
             <td th:text="${p.productName}"></td>
             <td th:text="${p.productPrice}"></td>
             <td th:text="${p.productQuantity}"></td>
